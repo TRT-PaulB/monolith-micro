@@ -1,0 +1,22 @@
+POST http://localhost:8080/product
+
+{
+  "productCode": "P1249493777",
+  "productName": "Girls New Formal Leather Shoes",
+  "shortDescription": "Girls Formal Leather Dress Shoes",
+  "longDescription": "Girls's Blue Formal Dress Shoes with multile sizes",
+  "canDisplay": true,
+  "parentCategory": {
+    "id": 12,
+    "categoryName": "Men's Clothing",
+    "categoryDescription": "Men's Branded Designer Clothing"
+  },
+  "category": {
+    "id": 4,
+    "categoryName": "Young Men's Clothing",
+    "categoryDescription": "Young Men's Branded Designer Clothing"
+  },
+  "deleted": false,
+  "automotive": false,
+  "international": false
+}
