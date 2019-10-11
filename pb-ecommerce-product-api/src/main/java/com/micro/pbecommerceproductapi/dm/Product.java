@@ -39,6 +39,7 @@ public class Product {
 	@Column(name = "ISINTERNATIONAL", nullable = false)
 	private boolean isInternational;
 
+	
 	@OneToOne
 	@JoinColumn(name = "parent_category_id")
 	private Category parentCategory;
