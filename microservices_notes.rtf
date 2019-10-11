@@ -1,0 +1,241 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\froman\fcharset0 Times-Roman;
+\f3\fnil\fcharset0 Menlo-Bold;\f4\fnil\fcharset0 Menlo-BoldItalic;}
+{\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red0\green0\blue0;
+\red43\green39\blue19;\red0\green0\blue233;\red127\green0\blue85;\red0\green0\blue192;\red127\green0\blue85;
+\red0\green0\blue192;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\csgray\c0;
+\cssrgb\c22353\c20000\c9412;\cssrgb\c0\c0\c93333;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c0\c0\c75294;\csgenericrgb\c49804\c0\c33333;
+\csgenericrgb\c0\c0\c75294;\cssrgb\c0\c0\c93333;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww24020\viewh14120\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 MICROSERVICE MIGRATION FROM MONOLITHIC APPLICATIONS\
+\
+Check java jdk in Mac:  
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+/usr/bin/java -version\
+\
+MONOLITH: rollingstoine-monolithic-ecommerce-shopping-api \
+- Basically this is an old fashioned spring MVC app\
+  with pom elements added incrementally (without spring boot)\
+\
+  Presumably, to run:\
+  \'97> setup local tomcat manually\
+  \'97> setup MySQL manually as specified in application.properties \
+\
+PAINS:\
+- difficulty of testing\
+  Make change to pricing, testing necessary for entire structure\
+  as it is not decoupled.  \
+- monolith as say 50 apis. If 1 has a memory leak, but it is hard\
+  to identify. Eg:\
+  \'97 Pricing controller issue, load testing issue, kills monolith \
+  - Delivery, Shipping, Products apis rely on Pricing api, so affected\
+  \
+SPRING BOOT 2 revision:\
+\'97> create a new spring boot app with actuator:\
+   
+\fs22 \cf4 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 DraftECommerceApp
+\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+- new spring boot project: web + actuator\
+==> Actuator gives you default performance metrics:\
+    \'97-> how much memory is left\
+    \'97-> how many threads running\
+==> all spring boot projects have spring-boot-starter-parent\
+    So developer does not have to manually install every small\
+    dependency\
+    Sets up tomcat and mysql instances in this case\
+==> Convention over configuration\
+  \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \
+==> creating a spring boot app builds to jar (see pom),\
+    and jar contains the embedded tomcat, and potentially embedded db.\
+    Plain spring will include just a war.\
+\
+    Do not have to deploy a war file to a separate container, such as\
+    Tomcat\
+\
+\'97-> mvn clean. (Basically removes deployment / target folder) \
+\'97-> mvn clean package. (Downloads dependencies afresh, so first time longer)\
+                       It also regenerates the created target folder\
+        Note the 2 jars:\
+        -> 
+\fs22 \cf4 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 DraftECommerceApp-0.0.1-SNAPSHOT.jar.original. (just the application)\
+          -> DraftECommerceApp-0.0.1-SNAPSHOT.jar.  (larger file, for running independently)\
+\
+\
+
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1     So in theory, from project folder, run:\
+    -> ./mvnw spring-boot:run\
+       Build and run a runnable jar  \
+       OR\
+    \'97> builds a runnable jar\
+       ./mvnw clean package\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0          java -jar target/DraftECommerceApp-0.0.1-SNAPSHOT.jar
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1  \
+\
+SPRING BOOT ACTUATOR\
+- create an application.yml in src/main/resources\
+  and point to a different port, eg. 8091\
+   \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 management:\
+  server: \
+    port: 8091
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \
+  Note with just the actuator library defined in the pom,\
+  These endpoints can now be accessed:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\fs24 \cf6 \cb1 \ul \ulc6     {\field{\*\fldinst{HYPERLINK "http://localhost:8091/actuator"}}{\fldrslt http://localhost:8091/actuator}}
+\f1\fs26 \cf5 \cb3 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0   \ul endpoints\ulnone :\
+    web:\
+      exposure:\
+        include: "*"\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\
+eg:\
+- beans ==> output spring beans for application\
+- conditions\
+- config props\
+- env ==> shows timezone and env variables\
+- heap dump ==> dumps a file\
+- metrics\
+- http trace\
+- mappings\
+\
+==========================================================\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 MY SPRING BOOT APP:  DraftECommerceApp
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\
+EXISTING SPRING MVC: monolithic api\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 rollingstoine-monolithic-ecommerce-shopping-api\
+\
+GROUP (com.micro)\
+pb-ecommerce-product-api\cf5 \
+\
+==========================================================\
+\
+Section 5:\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.udemy.com/course/practical-world-java-spring-microservices/learn/lecture/12605520#questions"}}{\fldrslt 
+\f2\fs24 \cf6 \cb1 \ul \ulc6 https://www.udemy.com/course/practical-world-java-spring-microservices/learn/lecture/12605520#questions}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 Created: pb-ecommerce-product-api\cf5 \
+- SPRING BOOT: web, actuator, JPA, MySQL\
+\
+- JPA hides the ORM (in this case hibernate)\
+- web for the rest api\
+\
+- Jackson\
+  Google: jackson databind maven dependency\
+  \'97> take latest\
+  -> just with Jackson, omit the version \
+     (as spring boot already specifies a version)\
+\
+- Swagger\
+  Can add live documentation with little overhead \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5   Google: springfox-swagger2 \
+          Springfox-swagger2-ui \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \'97> add packages\
+\
+\'97> Migrate from monolith:\
+   - dm.Product\
+\
+\'97> Do not migrate the Dao, because JPA offers better solution\
+   - create ProductDaoRepository from monolith\
+\
+   LOGGING \
+   Note this does not compile\'85\'85.because\
+   - spring boot uses log4j, but better to use sl4j\
+   - jpa=interface hibernate=implementation\
+   ==> slj is totally decoupled from hibernate implementation \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\b\fs24 \cf7 \cb1 \kerning1\expnd0\expndtw0 	WAS: final
+\f1\b0 \cf0  
+\f3\b \cf7 static
+\f1\b0 \cf0  Logger 
+\f4\i\b \cf8 logger
+\f1\i0\b0 \cf0  = Logger.\ul getLogger\ulnone (ProductServiceImpl.
+\f3\b \cf7 class
+\f1\b0 \cf0 );\
+\pard\pardeftab720\partightenfactor0
+
+\f3\b \cf9 	MIGRATE: final
+\f1\b0 \cf0  
+\f3\b \cf9 static
+\f1\b0 \cf0  Logger 
+\f4\i\b \cf10 logger
+\f1\i0\b0 \cf0  = LoggerFactory.\ul getLogger\ulnone (ProductServiceImpl.
+\f3\b \cf9 class
+\f1\b0 \cf0 );
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \
+    ??? logbook example:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\fs24 \cf11 \cb1 \ul \ulc11 \outl0\strokewidth0 \strokec11            {\field{\*\fldinst{HYPERLINK "https://www.mkyong.com/spring-boot/spring-boot-slf4j-logging-example/"}}{\fldrslt https://www.mkyong.com/spring-boot/spring-boot-slf4j-logging-example/}}
+\f1\fs26 \cf5 \cb3 \ulnone \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5    \
+\'97> rename ProductDao to Repository\
+   Remove Transactional annotations \
+   (Spring boot provides this functionality)\
+\
+\'97> update product ProductService\
+\
+   - standard other changes:\
+     Change ProductService list() to:\
+     - Page<Product> getProductsByPage(Integer pageNum, Integer pageSize);\
+\
+-> update product controller   \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 ==========================================================\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

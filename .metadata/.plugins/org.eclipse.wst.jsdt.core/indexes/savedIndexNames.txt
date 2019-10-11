@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/Users/paulbickell/Documents/JavaWorkspace4/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1990730156.index
+2970649993.index
+2084420772.index
+630945207.index
+3147529921.index
+270389204.index

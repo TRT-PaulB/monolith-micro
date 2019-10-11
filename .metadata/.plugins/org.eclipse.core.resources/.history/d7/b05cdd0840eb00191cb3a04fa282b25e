@@ -1,0 +1,8 @@
+package com.micro.pbecommerceproductapi.dao;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface ProductDaoRepository extends PagingAndSortingRepository {
+
+	
+	
+}

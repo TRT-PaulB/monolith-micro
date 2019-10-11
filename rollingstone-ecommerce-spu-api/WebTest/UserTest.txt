@@ -1,0 +1,319 @@
+Build by grade clean build
+
+Check the jar file by ls -lt build/libs
+
+Run by 
+
+java -jar -Dspring.profiles.active=mysql build/libs/rollingstone-ecommerce-spu-api-1.0.jar 
+
+Get All SPU  With
+
+1. GET http://localhost:4098//rscommerce/pdp-service/spu
+
+{  
+   "content":[  
+      {  
+         "id":2,
+         "offerId":1002,
+         "productId":2,
+         "highestStoreIndex":34,
+         "radius":50,
+         "storeName":"SRT_0004",
+         "days":5,
+         "promiseDate":"2018-10-24",
+         "instockStatus":true,
+         "quantity":1,
+         "availableQuantity":110,
+         "storeNumber":"245 Main Street",
+         "streetAddress":"9AM-9PM",
+         "city":"Schaumburg",
+         "state":"IL",
+         "zipCode":"60173",
+         "phone":"987-345-9857",
+         "sundayWorkingHours":"9AM-9PM",
+         "mondayWorkingHours":"9AM-9PM",
+         "tuesdayWorkingHours":"9AM-9PM",
+         "wednesdayWorkingHours":"9AM-9PM",
+         "thursdayWorkingHours":"9AM-9PM",
+         "fridayWorkingHours":"9AM-9PM",
+         "saturdayWorkingHours":"9AM-9PM",
+         "autoStore":false,
+         "nearest":false
+      },
+      {  
+         "id":1,
+         "offerId":1001,
+         "productId":2,
+         "highestStoreIndex":32,
+         "radius":50,
+         "storeName":"SRT_0003",
+         "days":5,
+         "promiseDate":"2018-10-25",
+         "instockStatus":true,
+         "quantity":1,
+         "availableQuantity":100,
+         "storeNumber":"245 Main Street",
+         "streetAddress":"9AM-9PM",
+         "city":"Bollingbrook",
+         "state":"ILBollingbrook Store",
+         "zipCode":"60540",
+         "phone":"987-345-9857",
+         "sundayWorkingHours":"9AM-9PM",
+         "mondayWorkingHours":"9AM-9PM",
+         "tuesdayWorkingHours":"9AM-9PM",
+         "wednesdayWorkingHours":"9AM-9PM",
+         "thursdayWorkingHours":"9AM-9PM",
+         "fridayWorkingHours":"9AM-9PM",
+         "saturdayWorkingHours":"9AM-9PM",
+         "autoStore":false,
+         "nearest":true
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":2,
+   "size":20,
+   "number":0,
+   "numberOfElements":2,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   },
+   "first":true
+}
+
+
+2. Create a new SPU 
+
+POST http://localhost:4098//rscommerce/pdp-service/spu
+
+
+Body :
+
+{
+  "offerId": 1002,
+  "productId": 2,
+  "highestStoreIndex": 34,
+  "radius": 50,
+  "storeName": "SRT_0004",
+  "days": 5,
+  "promiseDate": "2018-10-25",
+  "instockStatus": true,
+  "quantity": 1,
+  "availableQuantity": 120,
+  "storeNumber": "245 Main Street",
+  "streetAddress": "9AM-9PM",
+  "city": "Schaumburg",
+  "state": "IL",
+  "zipCode": "60173",
+  "phone": "987-345-9857",
+  "sundayWorkingHours": "9AM-9PM",
+  "mondayWorkingHours": "9AM-9PM",
+  "tuesdayWorkingHours": "9AM-9PM",
+  "wednesdayWorkingHours": "9AM-9PM",
+  "thursdayWorkingHours": "9AM-9PM",
+  "fridayWorkingHours": "9AM-9PM",
+  "saturdayWorkingHours": "9AM-9PM"
+}
+
+3. Verify the New SPU Creation
+
+GET http://localhost:4098//rscommerce/pdp-service/spu
+
+{  
+   "content":[  
+      {  
+         "id":2,
+         "offerId":1002,
+         "productId":2,
+         "highestStoreIndex":34,
+         "radius":50,
+         "storeName":"SRT_0004",
+         "days":5,
+         "promiseDate":"2018-10-24",
+         "instockStatus":true,
+         "quantity":1,
+         "availableQuantity":110,
+         "storeNumber":"245 Main Street",
+         "streetAddress":"9AM-9PM",
+         "city":"Schaumburg",
+         "state":"IL",
+         "zipCode":"60173",
+         "phone":"987-345-9857",
+         "sundayWorkingHours":"9AM-9PM",
+         "mondayWorkingHours":"9AM-9PM",
+         "tuesdayWorkingHours":"9AM-9PM",
+         "wednesdayWorkingHours":"9AM-9PM",
+         "thursdayWorkingHours":"9AM-9PM",
+         "fridayWorkingHours":"9AM-9PM",
+         "saturdayWorkingHours":"9AM-9PM",
+         "autoStore":false,
+         "nearest":false
+      },
+      {  
+         "id":3,
+         "offerId":1002,
+         "productId":2,
+         "highestStoreIndex":34,
+         "radius":50,
+         "storeName":"SRT_0004",
+         "days":5,
+         "promiseDate":"2018-10-24",
+         "instockStatus":true,
+         "quantity":1,
+         "availableQuantity":120,
+         "storeNumber":"245 Main Street",
+         "streetAddress":"9AM-9PM",
+         "city":"Schaumburg",
+         "state":"IL",
+         "zipCode":"60173",
+         "phone":"987-345-9857",
+         "sundayWorkingHours":"9AM-9PM",
+         "mondayWorkingHours":"9AM-9PM",
+         "tuesdayWorkingHours":"9AM-9PM",
+         "wednesdayWorkingHours":"9AM-9PM",
+         "thursdayWorkingHours":"9AM-9PM",
+         "fridayWorkingHours":"9AM-9PM",
+         "saturdayWorkingHours":"9AM-9PM",
+         "autoStore":false,
+         "nearest":false
+      },
+      {  
+         "id":1,
+         "offerId":1001,
+         "productId":2,
+         "highestStoreIndex":32,
+         "radius":50,
+         "storeName":"SRT_0003",
+         "days":5,
+         "promiseDate":"2018-10-25",
+         "instockStatus":true,
+         "quantity":1,
+         "availableQuantity":100,
+         "storeNumber":"245 Main Street",
+         "streetAddress":"9AM-9PM",
+         "city":"Bollingbrook",
+         "state":"ILBollingbrook Store",
+         "zipCode":"60540",
+         "phone":"987-345-9857",
+         "sundayWorkingHours":"9AM-9PM",
+         "mondayWorkingHours":"9AM-9PM",
+         "tuesdayWorkingHours":"9AM-9PM",
+         "wednesdayWorkingHours":"9AM-9PM",
+         "thursdayWorkingHours":"9AM-9PM",
+         "fridayWorkingHours":"9AM-9PM",
+         "saturdayWorkingHours":"9AM-9PM",
+         "autoStore":false,
+         "nearest":true
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":3,
+   "size":20,
+   "number":0,
+   "numberOfElements":3,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   },
+   "first":true
+}
+
+3. Get a single SPU
+
+GET http://localhost:4098//rscommerce/pdp-service/spu
+/2
+{  
+   "id":2,
+   "offerId":1002,
+   "productId":2,
+   "highestStoreIndex":34,
+   "radius":50,
+   "storeName":"SRT_0004",
+   "days":5,
+   "promiseDate":"2018-10-24",
+   "instockStatus":true,
+   "quantity":1,
+   "availableQuantity":110,
+   "storeNumber":"245 Main Street",
+   "streetAddress":"9AM-9PM",
+   "city":"Schaumburg",
+   "state":"IL",
+   "zipCode":"60173",
+   "phone":"987-345-9857",
+   "sundayWorkingHours":"9AM-9PM",
+   "mondayWorkingHours":"9AM-9PM",
+   "tuesdayWorkingHours":"9AM-9PM",
+   "wednesdayWorkingHours":"9AM-9PM",
+   "thursdayWorkingHours":"9AM-9PM",
+   "fridayWorkingHours":"9AM-9PM",
+   "saturdayWorkingHours":"9AM-9PM",
+   "autoStore":false,
+   "nearest":false
+}
+
+4. Update an existing SPU
+
+PUT http://localhost:4098/rscommerce/pdp-service/spu/3
+
+Body
+
+
+{
+  "id":3,
+  "offerId": 1003,
+  "productId": 2,
+  "highestStoreIndex": 34,
+  "radius": 50,
+  "storeName": "SRT_0003",
+  "days": 5,
+  "promiseDate": "2018-10-25",
+  "instockStatus": true,
+  "quantity": 1,
+  "availableQuantity": 50,
+  "storeNumber": "245 Main Street",
+  "streetAddress": "9AM-9PM",
+  "city": "Schaumburg",
+  "state": "IL",
+  "zipCode": "60173",
+  "phone": "987-345-9857",
+  "sundayWorkingHours": "9AM-9PM",
+  "mondayWorkingHours": "9AM-9PM",
+  "tuesdayWorkingHours": "9AM-9PM",
+  "wednesdayWorkingHours": "9AM-9PM",
+  "thursdayWorkingHours": "9AM-9PM",
+  "fridayWorkingHours": "9AM-9PM",
+  "saturdayWorkingHours": "9AM-9PM"
+}
+
+5. Delete an SPU
+
+DELETE http://localhost:4098/rscommerce/pdp-service/spu/3
+
+
+
+
+

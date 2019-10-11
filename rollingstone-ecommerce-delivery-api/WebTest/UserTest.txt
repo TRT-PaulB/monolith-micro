@@ -1,0 +1,174 @@
+How to test the Delivery REST API
+
+1. Get All Delivery With
+
+METHOD:  GET
+URL: http://localhost:9098/rscommerce/pdp-service/account/delivery
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":4,
+         "offerId":1002,
+         "productId":1002,
+         "availableDate":"2018-02-11",
+         "daysInTransit":10,
+         "deliveryCharge":49.0,
+         "haulAwayMessage":"Will Haul Away Old Appliances",
+         "hasSpecialOffers":true,
+         "available":true,
+         "freeForMembers":true
+      },
+      {  
+         "id":1,
+         "offerId":1001,
+         "productId":1001,
+         "availableDate":"2018-01-12",
+         "daysInTransit":12,
+         "deliveryCharge":39.0,
+         "haulAwayMessage":"Will Haul Away Old Appliances",
+         "hasSpecialOffers":true,
+         "available":true,
+         "freeForMembers":true
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":2,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":2,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+2. Create a New Delivery With
+
+METHOD: POST
+URL: http://localhost:9098/rscommerce/pdp-service/account/delivery
+BODY:
+
+{
+  "offerId": 1003,
+  "productId": 1003,
+  "availableDate": "2018-02-12",
+  "daysInTransit": 10,
+  "deliveryCharge": 69,
+  "haulAwayMessage": "Will Haul Away Old Appliances",
+  "hasSpecialOffers": true,
+  "available": true,
+  "freeForMembers": true
+}
+
+3. Verify New Delivery Creation with
+
+METHOD:  GET
+URL: http://localhost:9098/rscommerce/pdp-service/account/delivery
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":5,
+         "offerId":1003,
+         "productId":1003,
+         "availableDate":"2018-02-11",
+         "daysInTransit":10,
+         "deliveryCharge":69.0,
+         "haulAwayMessage":"Will Haul Away Old Appliances",
+         "hasSpecialOffers":true,
+         "available":true,
+         "freeForMembers":true
+      },
+      {  
+         "id":4,
+         "offerId":1002,
+         "productId":1002,
+         "availableDate":"2018-02-11",
+         "daysInTransit":10,
+         "deliveryCharge":49.0,
+         "haulAwayMessage":"Will Haul Away Old Appliances",
+         "hasSpecialOffers":true,
+         "available":true,
+         "freeForMembers":true
+      },
+      {  
+         "id":1,
+         "offerId":1001,
+         "productId":1001,
+         "availableDate":"2018-01-12",
+         "daysInTransit":12,
+         "deliveryCharge":39.0,
+         "haulAwayMessage":"Will Haul Away Old Appliances",
+         "hasSpecialOffers":true,
+         "available":true,
+         "freeForMembers":true
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":3,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":3,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+4. Update an existing delivery with
+
+METHOD: PUT
+URL: http://localhost:9098/rscommerce/pdp-service/account/delivery/5
+
+BODY:
+
+{
+  "id":5,
+  "offerId": 1003,
+  "productId": 1003,
+  "availableDate": "2018-02-12",
+  "daysInTransit": 10,
+  "deliveryCharge": 29,
+  "haulAwayMessage": "Will Haul Away Old Appliances",
+  "hasSpecialOffers": true,
+  "available": true,
+  "freeForMembers": true
+}
+
+5. Delete the delivery with id 5 
+
+METHOD: DELETE
+URL: http://localhost:9098/rscommerce/pdp-service/account/delivery/5
+
+

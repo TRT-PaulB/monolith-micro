@@ -1,0 +1,32 @@
+CREATE TABLE `ROLLINGSTONE_ORDER` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ORDER_NUMBER` VARCHAR(50) NOT NULL,
+   `ORDER_TRACKING_NUMBER` VARCHAR(50) NOT NULL,
+  `ORDER_TOTAL` double NOT NULL,
+  `ORDER_DATE` date NOT NULL,
+  `user_profile_id` bigint(20)  NOT NULL,
+  `SHIPPING_ADDRESS_ID` bigint(20) DEFAULT NULL,
+  `BILLING_ADDRESS_ID` bigint(20) DEFAULT NULL,
+  `ACCOUNT_ID` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `FK_ORDER_SER_ID` FOREIGN KEY (`user_profile_id`) REFERENCES `rollingstone_user` (`ID`),
+  CONSTRAINT `FK_SHIPPING_ADDRESS_ID` FOREIGN KEY (`SHIPPING_ADDRESS_ID`) REFERENCES `rollingstone_address` (`ID`),
+  CONSTRAINT `FK_BILLING_ADDRESS_ID` FOREIGN KEY (`BILLING_ADDRESS_ID`) REFERENCES `rollingstone_address` (`ID`),
+  CONSTRAINT `FK_ACCOUNT_ID` FOREIGN KEY (`account_id`) REFERENCES `rollingstone_account` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `ROLLINGSTONE_ORDER_ITEMS` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `QTY_ORDERED` bigint(20) NOT NULL,
+  `uom` varchar(255) NOT NULL,
+  `unit_price` double NOT NULL,
+  `order_id` bigint(20) NOT NULL,
+  `product_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKi2gr91a621099dgpkh5813dnr` (`order_id`),
+  KEY `FK3x343xhgv4tkrbdy6oiga3vkf` (`product_id`),
+  CONSTRAINT `FK3x343xhgv4tkrbdy6oiga3vkf` FOREIGN KEY (`product_id`) REFERENCES `rollingstone_product` (`id`),
+  CONSTRAINT `FKi2gr91a621099dgpkh5813dnr` FOREIGN KEY (`order_id`) REFERENCES `ROLLINGSTONE_ORDER` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -1,0 +1,322 @@
+How to test the Cart and CartItem REST API
+
+1. Get All Carts With
+
+METHOD:  GET
+URL: http://localhost:4092/rscommerce/pdp-service/account/cart
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":9,
+         "cartTotal":225.0,
+         "cartDate":"2018-10-19",
+         "user":{  
+            "id":1,
+            "userName":"bdatta",
+            "firstName":"Binit",
+            "lastName":"Datta",
+            "sex":"M",
+            "memberType":"G",
+            "accountNumber":"10001",
+            "registrationDate":"2015-01-01"
+         }
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":1,
+   "size":20,
+   "number":0,
+   "numberOfElements":1,
+   "first":true,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+2. Create a New Cart With
+
+METHOD: POST
+URL: http://localhost:4092/rscommerce/pdp-service/account/cart
+
+BODY:
+
+{
+  "cartTotal": 250,
+  "cartDate": "2018-10-19",
+  "user": {
+    "id": 1,
+    "userName": "bdatta",
+    "firstName": "Binit",
+    "lastName": "Datta",
+    "sex": "M",
+    "memberType": "G",
+    "accountNumber": "10001",
+    "registrationDate": "2015-01-01"
+  }
+}
+
+3. Verify New Cart Creation with
+
+METHOD:  GET
+URL: http://localhost:4092/rscommerce/pdp-service/account/cart
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":10,
+         "cartTotal":250.0,
+         "cartDate":"2018-10-18",
+         "user":{  
+            "id":1,
+            "userName":"bdatta",
+            "firstName":"Binit",
+            "lastName":"Datta",
+            "sex":"M",
+            "memberType":"G",
+            "accountNumber":"10001",
+            "registrationDate":"2015-01-01"
+         }
+      },
+      {  
+         "id":9,
+         "cartTotal":225.0,
+         "cartDate":"2018-10-19",
+         "user":{  
+            "id":1,
+            "userName":"bdatta",
+            "firstName":"Binit",
+            "lastName":"Datta",
+            "sex":"M",
+            "memberType":"G",
+            "accountNumber":"10001",
+            "registrationDate":"2015-01-01"
+         }
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":2,
+   "size":20,
+   "number":0,
+   "numberOfElements":2,
+   "first":true,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+4. Update an existing cart with
+
+METHOD: PUT
+URL: http://localhost:4092/rscommerce/pdp-service/account/cart/10
+
+BODY:
+
+{
+  "id": 10,
+  "cartTotal": 475,
+  "cartDate": "2018-10-20",
+  "user": {
+    "id": 1,
+    "userName": "bdatta",
+    "firstName": "Binit",
+    "lastName": "Datta",
+    "sex": "M",
+    "memberType": "G",
+    "accountNumber": "10001",
+    "registrationDate": "2015-01-01"
+  }
+}
+
+5. Get a Single Cart with 
+
+METHOD:  GET
+URL: http://localhost:4092/rscommerce/pdp-service/account/cart/10
+
+{  
+   "id":10,
+   "cartTotal":475.0,
+   "cartDate":"2018-10-19",
+   "user":{  
+      "id":1,
+      "userName":"bdatta",
+      "firstName":"Binit",
+      "lastName":"Datta",
+      "sex":"M",
+      "memberType":"G",
+      "accountNumber":"10001",
+      "registrationDate":"2015-01-01"
+   }
+}
+
+6. Delete the cart with id 10 
+
+METHOD: DELETE
+URL: http://localhost:4092/rscommerce/pdp-service/account/cart/10
+
+7. Get All Cart Items for a single Cart with
+
+Method GET
+URL : http://localhost:4092/rscommerce/pdp-service/account/cart/9/cart-item
+
+Results
+
+{  
+   "content":[  
+      {  
+         "id":2,
+         "offerId":1001,
+         "productId":1001,
+         "quantity":3,
+         "unit":"PCS",
+         "price":112.0,
+         "ffmType":"SHIPPING"
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":1,
+   "size":20,
+   "number":0,
+   "numberOfElements":1,
+   "first":true,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+8. Create a New Cart Item with
+
+Method POST
+
+URL : http://localhost:4092/rscommerce/pdp-service/account/cart/9/cart-item
+
+Body
+
+{
+  "offerId": 1003,
+  "productId": 1003,
+  "quantity": 2,
+  "unit": "PCS",
+  "price": 112,
+  "ffmType": "SHIPPING"
+}
+
+9. Verify the New Cart Item Creation with
+
+Method GET
+
+URL : http://localhost:4092/rscommerce/pdp-service/account/cart/9/cart-item
+
+{  
+   "content":[  
+      {  
+         "id":3,
+         "offerId":1003,
+         "productId":1003,
+         "quantity":2,
+         "unit":"PCS",
+         "price":112.0,
+         "ffmType":"SHIPPING"
+      },
+      {  
+         "id":2,
+         "offerId":1001,
+         "productId":1001,
+         "quantity":3,
+         "unit":"PCS",
+         "price":112.0,
+         "ffmType":"SHIPPING"
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":2,
+   "size":20,
+   "number":0,
+   "numberOfElements":2,
+   "first":true,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+10. Update an existing Cart item with
+
+Method PUT
+
+Method : http://localhost:4092/rscommerce/pdp-service/account/cart/9/cart-item/3
+
+Body
+
+{
+  "offerId": 1003,
+  "productId": 1003,
+  "quantity": 2,
+  "unit": "PCS",
+  "price": 114,
+  "ffmType": "SHIPPING"
+}
+
+11. Delete an existing cart item with
+
+MEHTOD : DELETE
+
+URL : http://localhost:4092/rscommerce/pdp-service/account/cart/9/cart-item/3
+
+
+

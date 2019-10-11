@@ -1,0 +1,231 @@
+Build by grade clean build
+
+Check the jar file by ls -lt build/libs
+
+Run by 
+
+java -jar -Dspring.profiles.active=mysql build/libs/rollingstone-ecommerce-address-api-1.0.jar 
+
+Get All Address  With
+
+1. GET http://localhost:9092/rscommerce/pdp-service/account/address
+
+{  
+   "content":[  
+      {  
+         "id":10,
+         "houseNumber":"2345",
+         "streetAddress":"Main Street",
+         "city":"Chicago",
+         "state":"IL",
+         "zipCode":"60601",
+         "account":{  
+            "id":8,
+            "accountNumber":"1001",
+            "user":{  
+               "id":1,
+               "userName":"bdatta",
+               "firstName":"Binit",
+               "lastName":"Datta",
+               "sex":"M",
+               "memberType":"G",
+               "accountNumber":"10001",
+               "registrationDate":"2015-01-01"
+            }
+         }
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":1,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":1,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+2. Create a new Address 
+
+POST http://localhost:9092/rscommerce/pdp-service/account/address
+
+Body :
+
+{
+  "houseNumber": "7878",
+  "streetAddress": "Main Street",
+  "city": "Chicago",
+  "state": "IL",
+  "zipCode": "60602",
+  "account": {
+    "id": 8,
+    "accountNumber": "1001",
+    "user": {
+      "id": 1,
+      "userName": "bdatta",
+      "firstName": "Binit",
+      "lastName": "Datta",
+      "sex": "M",
+      "memberType": "G",
+      "accountNumber": "10001",
+      "registrationDate": "2015-01-01"
+    }
+  }
+}
+
+3. Verify the New Address Creation
+
+GET http://localhost:9092/rscommerce/pdp-service/account/address
+
+{  
+   "content":[  
+      {  
+         "id":12,
+         "houseNumber":"7878",
+         "streetAddress":"Main Street",
+         "city":"Chicago",
+         "state":"IL",
+         "zipCode":"60602",
+         "account":{  
+            "id":8,
+            "accountNumber":"1001",
+            "user":{  
+               "id":1,
+               "userName":"bdatta",
+               "firstName":"Binit",
+               "lastName":"Datta",
+               "sex":"M",
+               "memberType":"G",
+               "accountNumber":"10001",
+               "registrationDate":"2015-01-01"
+            }
+         }
+      },
+      {  
+         "id":10,
+         "houseNumber":"2345",
+         "streetAddress":"Main Street",
+         "city":"Chicago",
+         "state":"IL",
+         "zipCode":"60601",
+         "account":{  
+            "id":8,
+            "accountNumber":"1001",
+            "user":{  
+               "id":1,
+               "userName":"bdatta",
+               "firstName":"Binit",
+               "lastName":"Datta",
+               "sex":"M",
+               "memberType":"G",
+               "accountNumber":"10001",
+               "registrationDate":"2015-01-01"
+            }
+         }
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalPages":1,
+   "totalElements":2,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":2,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+3. Get a single Address
+
+GET http://localhost:9092/rscommerce/pdp-service/account/address/12
+
+{  
+   "id":12,
+   "houseNumber":"7878",
+   "streetAddress":"Main Street",
+   "city":"Chicago",
+   "state":"IL",
+   "zipCode":"60602",
+   "accountId":8
+}
+
+
+4. Update an existing Address
+
+PUT http://localhost:9092/rscommerce/pdp-service/account/address/12
+
+Body
+
+
+{
+  "id": 12,
+  "houseNumber": "7878",
+  "streetAddress": "Main Updated Street",
+  "city": "Chicago",
+  "state": "IL",
+  "zipCode": "60602",
+  "account": {
+    "id": 8,
+    "accountNumber": "1001",
+    "user": {
+      "id": 1,
+      "userName": "bdatta",
+      "firstName": "Binit",
+      "lastName": "Datta",
+      "sex": "M",
+      "memberType": "G",
+      "accountNumber": "10001",
+      "registrationDate": "2015-01-01"
+    }
+  }
+}
+
+
+5. Verify the Update
+
+GET http://localhost:9092/rscommerce/pdp-service/account/address/12
+
+{  
+   "id":12,
+   "houseNumber":"7878",
+   "streetAddress":"Main Updated Street",
+   "city":"Chicago",
+   "state":"IL",
+   "zipCode":"60602",
+   "accountId":8
+}
+6. Delete an Account
+
+DELETE http://localhost:9092/rscommerce/pdp-service/account/address/12
+
+
+
+
+

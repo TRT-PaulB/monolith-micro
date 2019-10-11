@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: rollingstone-ecommerce-add-to-cart-api
+  cloud:
+    config:
+      uri: http://localhost:9000

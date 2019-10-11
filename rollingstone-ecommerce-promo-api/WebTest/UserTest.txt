@@ -1,0 +1,210 @@
+Build by grade clean build
+
+Check the jar file by ls -lt build/libs
+
+Run by 
+
+java -jar -Dspring.profiles.active=mysql build/libs/rollingstone-ecommerce-promo-api-1.0.jar 
+
+
+Get All Promo  With
+
+1. GET http://localhost:5002//rscommerce/pdp-service/account/promo
+
+{  
+   "content":[  
+      {  
+         "id":1,
+         "productCode":"1001",
+         "promoCode":"PR_1001",
+         "promoName":"Demo Promo",
+         "promoTitle":"Sales Promotion",
+         "promoDetails":"Promo Should be active untill month end from start date",
+         "status":"a",
+         "discountAmount":20.0,
+         "discountType":"DOLLAR_AMOUNT",
+         "startDate":"2018-10-22",
+         "endDate":"2018-10-31",
+         "minimumPurchaseValue":100.0
+      },
+      {  
+         "id":3,
+         "productCode":"1002",
+         "promoCode":"PR_1002",
+         "promoName":"Demo Promo",
+         "promoTitle":"Sales Promotion",
+         "promoDetails":"Promo Should be active untill month end from start date",
+         "status":"a",
+         "discountAmount":20.0,
+         "discountType":"DOLLAR_AMOUNT",
+         "startDate":"2018-10-21",
+         "endDate":"2018-10-30",
+         "minimumPurchaseValue":150.0
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalElements":2,
+   "totalPages":1,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":2,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+2. Create a new Promo 
+
+POST http://localhost:5002//rscommerce/pdp-service/account/promo
+
+Body :
+
+{
+  "productCode": "1003",
+  "promoCode": "PR_1003",
+  "promoName": "Demo Promo 3",
+  "promoTitle": "Sales Promotion",
+  "promoDetails": "Promo Should be active untill month end from start date",
+  "status": "a",
+  "discountAmount": 24,
+  "discountType": "DOLLAR_AMOUNT",
+  "startDate": "2018-10-22",
+  "endDate": "2018-10-31",
+  "minimumPurchaseValue": 150
+}
+
+3. Verify the New Promo Creation
+
+GET http://localhost:5002//rscommerce/pdp-service/account/promo
+
+{  
+   "content":[  
+      {  
+         "id":4,
+         "productCode":"1003",
+         "promoCode":"PR_1003",
+         "promoName":"Demo Promo 3",
+         "promoTitle":"Sales Promotion",
+         "promoDetails":"Promo Should be active untill month end from start date",
+         "status":"a",
+         "discountAmount":24.0,
+         "discountType":"DOLLAR_AMOUNT",
+         "startDate":"2018-10-21",
+         "endDate":"2018-10-30",
+         "minimumPurchaseValue":150.0
+      },
+      {  
+         "id":1,
+         "productCode":"1001",
+         "promoCode":"PR_1001",
+         "promoName":"Demo Promo",
+         "promoTitle":"Sales Promotion",
+         "promoDetails":"Promo Should be active untill month end from start date",
+         "status":"a",
+         "discountAmount":20.0,
+         "discountType":"DOLLAR_AMOUNT",
+         "startDate":"2018-10-22",
+         "endDate":"2018-10-31",
+         "minimumPurchaseValue":100.0
+      },
+      {  
+         "id":3,
+         "productCode":"1002",
+         "promoCode":"PR_1002",
+         "promoName":"Demo Promo",
+         "promoTitle":"Sales Promotion",
+         "promoDetails":"Promo Should be active untill month end from start date",
+         "status":"a",
+         "discountAmount":20.0,
+         "discountType":"DOLLAR_AMOUNT",
+         "startDate":"2018-10-21",
+         "endDate":"2018-10-30",
+         "minimumPurchaseValue":150.0
+      }
+   ],
+   "pageable":{  
+      "sort":{  
+         "sorted":true,
+         "unsorted":false
+      },
+      "offset":0,
+      "pageSize":20,
+      "pageNumber":0,
+      "paged":true,
+      "unpaged":false
+   },
+   "last":true,
+   "totalElements":3,
+   "totalPages":1,
+   "size":20,
+   "number":0,
+   "first":true,
+   "numberOfElements":3,
+   "sort":{  
+      "sorted":true,
+      "unsorted":false
+   }
+}
+
+3. Get a single Promo
+
+GET http://localhost:5002//rscommerce/pdp-service/account/promo/4
+
+{  
+   "id":4,
+   "productCode":"1003",
+   "promoCode":"PR_1003",
+   "promoName":"Demo Promo 3",
+   "promoTitle":"Sales Promotion",
+   "promoDetails":"Promo Should be active untill month end from start date",
+   "status":"a",
+   "discountAmount":24.0,
+   "discountType":"DOLLAR_AMOUNT",
+   "startDate":"2018-10-21",
+   "endDate":"2018-10-30",
+   "minimumPurchaseValue":150.0
+}
+
+4. Update an existing Promo
+
+PUT http://localhost:5002//rscommerce/pdp-service/account/promo/4
+
+Body
+
+
+{
+  "id":2,
+  "productCode": "1002",
+  "promoCode": "PR_1002",
+  "promoName": "Demo Promo",
+  "promoTitle": "Sales Promotion",
+  "promoDetails": "Promo Should be active untill month end from start date",
+  "status": "a",
+  "discountAmount": 34,
+  "discountType": "DOLLAR_AMOUNT",
+  "startDate": "2018-10-22",
+  "endDate": "2018-10-31",
+  "minimumPurchaseValue": 90
+}
+
+5. Delete a Promo
+
+DELETE http://localhost:5002//rscommerce/pdp-service/account/promo/4
+
+
+
+
+

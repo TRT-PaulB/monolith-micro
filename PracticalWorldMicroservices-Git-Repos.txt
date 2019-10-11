@@ -1,0 +1,41 @@
+Please clone the following repositories for getting the source code for the Course.
+
+Course Source Code can be downloaded from this Git Repositories
+
+1. https://github.com/binitdatta/rollingstone-ecommerce-eureka-service-discovery.git
+
+2. https://github.com/binitdatta/rollingstone-ecommerce-api.git - This is the monolithic application for reference.
+
+3. https://github.com/binitdatta/rollingstone-ecommerce-user-api.git
+
+4. https://github.com/binitdatta/rollingstone-ecommerce-spu-api.git
+
+5. https://github.com/binitdatta/rollingstone-ecommerce-shipping-api-test.git
+
+6. For Reference : https://github.com/binitdatta/rollingstone-ecommerce-shipping-api.git
+
+7. https://github.com/binitdatta/rollingstone-ecommerce-remote-config-service.git
+
+8. https://github.com/binitdatta/rollingstone-ecommerce-promo-api.git
+
+9. https://github.com/binitdatta/rollingstone-ecommerce-product-api.git
+
+10. https://github.com/binitdatta/rollingstone-ecommerce-pricing-api.git
+
+11. https://github.com/binitdatta/rollingstone-ecommerce-order-api-test.git
+
+12. For Reference : https://github.com/binitdatta/rollingstone-ecommerce-order-api.git
+
+13. https://github.com/binitdatta/rollingstone-ecommerce-delivery-api.git
+
+14. https://github.com/binitdatta/rollingstone-ecommerce-category-api.git
+
+15. https://github.com/binitdatta/rollingstone-ecommerce-cart-api.git
+
+16. https://github.com/binitdatta/rollingstone-ecommerce-address-api.git
+
+17. https://github.com/binitdatta/rollingstone-ecommerce-account-api.git
+
+18. https://github.com/binitdatta/rollingstone-ecomerce-application-api-gateway.git
+
+19. https://github.com/binitdatta/rollingstone-ecomerce-application-api-gateway-eureka.git

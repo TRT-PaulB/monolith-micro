@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    config:
+      server:
+        git: 
+          uri: https://github.com/rollingstoneecomm/rollingstone-ecommerce-remote-config-repository
+          searchPaths: rollingstone-ecommerce-new-account-api,rollingstone-ecommerce-address-api,rollingstone-ecommerce-order-api,rollingstone-ecommerce-user-api,rollingstone-ecommerce-account-api,rollingstone-ecommerce-add-to-cart-api,rollingstone-ecommerce-category-api,rollingstone-ecommerce-checkout-api,rollingstone-ecommerce-delivery-api,rollingstone-ecommerce-ecoupon-api,rollingstone-ecommerce-pricing-api,rollingstone-ecommerce-product-api,rollingstone-ecommerce-promo-api,rollingstone-ecommerce-shipping-api,rollingstone-ecommerce-spu-api
+          username: rollingstoneecomm
+          password: KeepLearning$$1
+management:
+  server:
+    port: 9001
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "always"

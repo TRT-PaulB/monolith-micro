@@ -1,0 +1,37 @@
+server:
+  port: ${PORT:8085}
+  
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+       routes:
+        - id: account-service-get
+          uri: http://localhost:9094
+          predicates:
+          - Method=GET
+          - Path=/api/account/**
+          filters:
+          - RewritePath=/api/account/(?<path>.*), /$\{path}
+        - id: account-service-post
+          uri: http://localhost:9094
+          predicates:
+          - Method=POST
+          - Path=/api/account/**
+          filters:
+          - RewritePath=/api/account/(?<path>.*), /$\{path}
+        - id: account-service-put
+          uri: http://localhost:9094
+          predicates:
+          - Method=PUT
+          - Path=/api/account/**
+          filters:
+          - RewritePath=/api/account/(?<path>.*), /$\{path}
+        - id: account-service-delete
+          uri: http://localhost:9094
+          predicates:
+          - Method=DELETE
+          - Path=/api/account/**
+          filters:
+          - RewritePath=/api/account/(?<path>.*), /$\{path}

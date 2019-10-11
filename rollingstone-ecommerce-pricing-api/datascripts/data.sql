@@ -1,0 +1,20 @@
+INSERT INTO `rs_ecommerce`.`rollingstone_pricing`
+(
+`pcode`,
+`PRICE_ID`,
+`member_type`,
+`PRICE_TYPE`,
+`label`,
+`DISPLAY`,
+`ORIG_PRICE`,
+`DISC_PRICE`)
+VALUES
+(
+'1001',
+'100001',
+'G',
+'regular',
+12.00,
+'12.00',
+18.00,
+10.00);
