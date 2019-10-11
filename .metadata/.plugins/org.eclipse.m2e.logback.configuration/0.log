@@ -1490,3 +1490,15 @@ java.io.IOException: Invalid argument
 2019-10-11 12:33:04,841 [Worker-41: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2019-10-11 12:33:04,849 [Worker-41: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2019-10-11 12:33:04,850 [Worker-41: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/paulbickell/Documents/JavaWorkspace4/rollingstone-monolithic-ecommerce-shopping-api/src/test/resources
+2019-10-11 12:35:39,155 [Worker-42: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.rollingstone:rollingstone-monolithic-ecommerce-shopping-api:1.0 @ /Users/paulbickell/Documents/JavaWorkspace4/rollingstone-monolithic-ecommerce-shopping-api/pom.xml.
+2019-10-11 12:35:39,579 [Worker-42: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-10-11 12:35:39,581 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-10-11 12:35:39,582 [Worker-42: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-10-11 12:35:39,583 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/paulbickell/Documents/JavaWorkspace4/rollingstone-monolithic-ecommerce-shopping-api/src/test/resources
+2019-10-11 12:35:39,583 [Worker-42: Building workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of rollingstone-monolithic-ecommerce-shopping-api
+2019-10-11 12:35:39,583 [Worker-42: Building workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for rollingstone-monolithic-ecommerce-shopping-api
+2019-10-11 12:35:39,585 [Worker-42: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-10-11 12:35:40,957 [Worker-41: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-10-11 12:35:40,957 [Worker-41: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2019-10-11 12:35:40,966 [Worker-41: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-10-11 12:35:40,967 [Worker-41: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/paulbickell/Documents/JavaWorkspace4/rollingstone-monolithic-ecommerce-shopping-api/src/test/resources
