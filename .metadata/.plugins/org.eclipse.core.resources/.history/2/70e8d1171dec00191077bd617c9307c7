@@ -34,10 +34,7 @@ http://localhost:8080/product
 
 
 GET: Get Products 
-     http://localhost:8080/product
-GET http://localhost:8080/product/5
-PUT http://localhost:8080/product/6
-DELETE http://localhost:8080/product/5
+http://localhost:8080/product
 
 
 
@@ -46,7 +43,4 @@ GET http://localhost:8080/rollingstone-web-api/product/5
 PUT http://localhost:8080/rollingstone-web-api/product/5
 DELETE http://localhost:8080/rollingstone-web-api/product/5
 
-
-
-
-
+http://localhost:8080/rollingstone-web-api/product/6

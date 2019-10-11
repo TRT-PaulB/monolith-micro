@@ -5,11 +5,6 @@ PUT THIS INTO DATA.SQL????
 insert into category values (1, 'cat desc1', 'cat name1');
 insert into category values (2, 'cat desc2', 'cat name2');
 
-select p.id as prodId, p.*, c.*
-from product p
-inner join category c on p.category_id = c.id
-
-
 ------------------
 
 POST: Add Product 
@@ -34,19 +29,11 @@ http://localhost:8080/product
 
 
 GET: Get Products 
-     http://localhost:8080/product
-GET http://localhost:8080/product/5
-PUT http://localhost:8080/product/6
-DELETE http://localhost:8080/product/5
+http://localhost:8080/product
 
 
 
 OLD MONOLITH.....
-GET http://localhost:8080/rollingstone-web-api/product/5
-PUT http://localhost:8080/rollingstone-web-api/product/5
-DELETE http://localhost:8080/rollingstone-web-api/product/5
-
-
-
-
-
+GET http://localhost:8080/rollingstone-web-api/product/4
+PUT http://localhost:8080/rollingstone-web-api/product/4
+DELETE http://localhost:8080/rollingstone-web-api/product/4

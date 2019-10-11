@@ -1,0 +1,15 @@
+package com.micro.pbecommerceproductapi.aspects;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+
+import io.micrometer.core.instrument.Metrics;
+
+
+@Aspect
+@Component
+public class RestControllerAspect {
+
+	Counter productCreatedCounter = Metrics.counter("com.micro.pbecommerceproductapi");
+	
+	
+}

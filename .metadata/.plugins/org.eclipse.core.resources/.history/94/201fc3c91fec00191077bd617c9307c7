@@ -1,0 +1,5 @@
+package com.micro.pbecommerceproductapi.aspects;
+
+public class RestControllerAspect {
+
+}
