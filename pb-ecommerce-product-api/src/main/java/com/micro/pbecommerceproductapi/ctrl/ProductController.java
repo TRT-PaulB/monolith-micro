@@ -40,7 +40,7 @@ public class ProductController extends AbstractController {
    public ResponseEntity<?> createProduct(@RequestBody Product product) {
       Product savedProduct = productService.save(product);
       
-      // TODO handling exceptions.....???
+      // TODO handling exceptions.....??? presumably implemented with RestControllerAspect
       
       ProductEvent prdCreatedEvent = new ProductEvent("Product is created", savedProduct);
       eventPublisher.publishEvent(prdCreatedEvent);
