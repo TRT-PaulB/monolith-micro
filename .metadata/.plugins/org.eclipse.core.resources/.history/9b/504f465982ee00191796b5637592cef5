@@ -1,0 +1,12 @@
+package com.micro.pbecommerceproductapi.ctrl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
+
+public abstract class AbstractController implements ApplicationEventPublisherAware {
+
+	protected final Logger log = LoggerFactory.getLogger(this.getClass());
+	protected ApplicationEventPublisher eventPublisher; 
+	
+}

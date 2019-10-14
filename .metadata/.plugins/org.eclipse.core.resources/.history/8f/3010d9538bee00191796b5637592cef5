@@ -1,0 +1,18 @@
+package com.micro.pbecommerceproductapi.listeners;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ProductEventListener {
+
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	
+	@EventListener
+	public void onApplicationEvent(ProductEvent productEvent) {
+		
+	}
+	
+}

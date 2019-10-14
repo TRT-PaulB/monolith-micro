@@ -1,0 +1,15 @@
+package com.micro.pbecommerceproductapi.ex;
+
+public class RestAPIExceptionInfo {
+
+	private final String msg;
+	private final String details;
+	
+	
+	public RestAPIExceptionInfo() {
+		
+	}
+	
+	
+	
+}

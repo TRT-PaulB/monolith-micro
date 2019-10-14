@@ -24,7 +24,7 @@ public class RestControllerAspect {
 		logger.info("All Method Calls invoke his general aspect method");
 	}
 	
-	@AfterReturning("execution(public * com.micro.pbecommerceproductapi.ctrl.*Controller.save(..))")
+	@AfterReturning("execution(public * com.micro.pbecommerceproductapi.ctrl.*Controller.createProduct(..))")
 	public void getsCalledOnProductSave() {
 		logger.info("This aspect is fired after the save method of the controller has returned");
 		productCreatedCounter.increment();

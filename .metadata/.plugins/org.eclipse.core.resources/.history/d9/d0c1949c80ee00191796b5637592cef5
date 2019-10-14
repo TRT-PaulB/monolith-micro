@@ -1,0 +1,9 @@
+package com.micro.pbecommerceproductapi.ex;
+
+public class HTTP400Exception extends RuntimeException {
+
+	
+	
+	
+	
+}

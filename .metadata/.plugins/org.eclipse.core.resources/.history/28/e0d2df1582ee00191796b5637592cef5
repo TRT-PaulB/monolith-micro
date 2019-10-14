@@ -1,0 +1,9 @@
+package com.micro.pbecommerceproductapi.ctrl;
+import org.springframework.context.ApplicationEventPublisherAware;
+
+public abstract class AbstractController implements ApplicationEventPublisherAware {
+
+	
+	
+	
+}

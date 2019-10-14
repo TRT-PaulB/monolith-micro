@@ -1105,3 +1105,22 @@ java.io.FileNotFoundException:
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-11 12:35:40.967
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2019-10-14 08:50:18.390 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/paulbickell/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/paulbickell/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2019-10-14 08:50:26.207
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.core 1 0 2019-10-14 08:50:26.255
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-14 14:18:40.027
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-10-14 14:18:40.037
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!

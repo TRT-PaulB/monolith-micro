@@ -1,0 +1,8 @@
+package com.micro.pbecommerceproductapi.ctrl;
+
+public abstract class AbstractController {
+
+	
+	
+	
+}
