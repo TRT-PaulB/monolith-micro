@@ -4,7 +4,7 @@
 	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item key="ShowStatusLine" value="true"/>
-		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/rollingstone-monolithic-ecommerce-shopping-api/src/main/java/com/rollingstone/spring/dao/ProductDaoImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/pb-ecommerce-product-api/src/main/java/com/micro/pbecommerceproductapi/dm/Product.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/rollingstone-monolithic-ecommerce-shopping-api/src/main/java/com/rollingstone/spring/dao/ProductDaoImpl.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/pb-ecommerce-product-api/src/main/java/com/micro/pbecommerceproductapi/dm/Product.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/pb-ecommerce-product-api/src/main/java/com/micro/pbecommerceproductapi/aspects/RestControllerAspect.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/pb-ecommerce-product-api/src/main/java/com/micro/pbecommerceproductapi/event/ProductEvent.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
 		<item key="ShowDerived" value="false"/>
 		<item key="FilterByLocation" value="false"/>
 		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>

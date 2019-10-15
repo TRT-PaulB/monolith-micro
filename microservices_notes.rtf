@@ -3,9 +3,11 @@
 \f3\fnil\fcharset0 Menlo-Bold;\f4\fnil\fcharset0 Menlo-BoldItalic;\f5\fnil\fcharset0 Menlo-Italic;
 }
 {\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red0\green0\blue0;
-\red43\green39\blue19;\red0\green0\blue233;\red127\green0\blue85;\red0\green0\blue192;}
+\red43\green39\blue19;\red0\green0\blue233;\red127\green0\blue85;\red0\green0\blue192;\red100\green100\blue100;
+}
 {\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\csgray\c0;
-\cssrgb\c22353\c20000\c9412;\cssrgb\c0\c0\c93333;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c0\c0\c75294;}
+\cssrgb\c22353\c20000\c9412;\cssrgb\c0\c0\c93333;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c0\c0\c75294;\csgenericrgb\c39216\c39216\c39216;
+}
 \paperw11900\paperh16840\margl1440\margr1440\vieww24020\viewh14120\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -237,21 +239,69 @@ AND TEST THIS SEPARATELY IN ITS OWN SELF-CONTAINED UNIT\
    \
 ==========================================================\
 \
--> add exceptions\
+-> add exceptions (for later use)\
+\
+==========================================================\
+Add in event handling and build up actuator\
+\
 -> AbstractController \
 \'97> in ProductContoller use superclass method 
 \f5\i\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 checkResourceFound
 \f1\i0\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
 \
 -> add ProductEvent\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf5 -> add listener for product\
+-> add listener for product\
 \'97> removed static and templates directory form resources\
 -> throw some asynchronous events from the controller \
 \'97> application.yml\
    \'97> configure to expose all endpoints (*)\
    \'97> add in configuration for health endpoint to show details\
+\'97> test controller in postman\
+\'97> test actuator, especially for health\
+   {\field{\*\fldinst{HYPERLINK "http://localhost:8091/actuator/health"}}{\fldrslt 
+\f2\fs24 \cf6 \cb1 \ul \ulc6 http://localhost:8091/actuator/health}}\
+   Note that disc space is included, and so is MySQL as it is in path\
+   Look at metrics, and call again with the parameter name appended\
 \
+==========================================================\
+Service Discovery & Service Discovery Microservice\
+\
+1) Push based spring cloud microservice service discovery\
+   Ie. microservices \'91push\'92 their ip and port to Eureka\
+       Service\
+       (Google is pull based)\
+   Spring cloud is built on the Netflix Eureka service\
+\
+   Problem - if hardcoded service breaks, in monolithic architecture\
+   it crashes\
+\
+   - logical name on Eureka service\
+   - Eureka will use the name to locate one implementation of the \
+     particular service, and there could be multiple containers\
+     running with healthy instances of the application\
+   - heartbeat sent to Eureka every few seconds to determine health\
+\
+Benefits of Service Discovery\
+- decouples clients from the services they call, no hardcoding its \
+- enhance load balancing and availability\
+- service discovery has multiple instances\
+- central hub for orchestration\
+- health information\
+- supports others design patterns for micro services\
+\
+Create new project:\
+pb-ecommerce-eureka-service-discovery\
+- web\
+- Eureka Server\
+- actuator\
+\'97> below @SpringBootApplication, apply 
+\fs24 \cf9 \cb1 \kerning1\expnd0\expndtw0 @EnableEurekaServer 
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+\
+-> delete application.properties + create application.yml\
+\
+\
+==========================================================\
 \
 \
 \

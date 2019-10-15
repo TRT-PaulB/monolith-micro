@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/paulbickell/Documents/JavaWorkspace4/pb-ecommerce-eureka-service-discovery"/>
 			<item value="/Users/paulbickell/Documents/JavaWorkspace4/pb-ecommerce-product-api"/>
 			<item value="/Users/paulbickell/Documents/JavaWorkspace4/DraftECommerceApp"/>
 			<item value="/Users/paulbickell/Documents/JavaWorkspace4/rollingstone-monolithic-ecommerce-shopping-api"/>
