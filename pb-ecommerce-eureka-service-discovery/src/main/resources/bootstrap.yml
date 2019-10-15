@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: pb-ecommerce-eureka-service-discovery
+
+
