@@ -1,3 +1,10 @@
 spring:
   application:
     name: pb-ecommerce-product-api
+  cloud:
+    config:
+      uri: http://localhost:9000
+      
+      
+      
+      

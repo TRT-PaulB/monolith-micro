@@ -4,12 +4,10 @@
 }
 {\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red0\green0\blue0;
 \red43\green39\blue19;\red0\green0\blue233;\red127\green0\blue85;\red0\green0\blue192;\red100\green100\blue100;
-\red0\green0\blue233;\red27\green29\blue31;\red235\green236\blue237;\red63\green95\blue191;\red100\green100\blue100;
-}
+\red27\green29\blue31;\red63\green95\blue191;}
 {\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\csgray\c0;
 \cssrgb\c22353\c20000\c9412;\cssrgb\c0\c0\c93333;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c0\c0\c75294;\csgenericrgb\c39216\c39216\c39216;
-\cssrgb\c0\c0\c93333;\cssrgb\c14118\c15294\c16078;\cssrgb\c93725\c94118\c94510;\csgenericrgb\c24706\c37255\c74902;\csgenericrgb\c39216\c39216\c39216;
-}
+\cssrgb\c14118\c15294\c16078;\csgenericrgb\c24706\c37255\c74902;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww24020\viewh14120\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -261,12 +259,14 @@ Add in event handling and build up actuator\
 \'97> test controller in postman\
 \'97> test actuator, especially for health\
    {\field{\*\fldinst{HYPERLINK "http://localhost:8091/actuator/health"}}{\fldrslt 
-\f2\fs24 \cf6 \cb1 \ul \ulc6 http://localhost:8091/actuator/health}}\
+\f2\fs24 \cf6 \cb1 \ul http://localhost:8091/actuator/health}}\
    Note that disc space is included, and so is MySQL as it is in path\
    Look at metrics, and call again with the parameter name appended\
 \
 ==========================================================\
-Service Discovery & Service Discovery Microservice\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf5 ==========================================================\
+Service Discovery & Service Discovery (Microservice design pattern)\
 \
 1) Push based spring cloud microservice service discovery\
    Ie. microservices \'91push\'92 their ip and port to Eureka\
@@ -314,13 +314,13 @@ Deploy: (ignore error in stack trace)\
 \'97> actuator health also states UP:\
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f2\fs24 \cf10 \cb1 \ul \ulc10 \outl0\strokewidth0 \strokec10         {\field{\*\fldinst{HYPERLINK "http://localhost:8080/actuator"}}{\fldrslt http://localhost:8080/actuator}}
-\f1\fs26 \cf5 \cb3 \ulnone \outl0\strokewidth0 \
+\f2\fs24 \cf6 \cb1 \ul \ulc6         {\field{\*\fldinst{HYPERLINK "http://localhost:8080/actuator"}}{\fldrslt http://localhost:8080/actuator}}
+\f1\fs26 \cf5 \cb3 \ulnone \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf5 \
 Port already in use:\
-\'97> Find processes on 8080:  \cf11 \cb12 \outl0\strokewidth0 \strokec11 netstat -vanp tcp | grep 3000\
-\cf5 \cb3 \outl0\strokewidth0 -> kill it \
+\'97> Find processes on 8080:  \cf10 \cb3 netstat -vanp tcp | grep 3000\
+\cf5 \cb3 -> kill it \
 \
 ==========================================================\
 \
@@ -345,19 +345,19 @@ Port already in use:\
 \fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 8761
 \fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf5 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\
+\
    CLIENT SIDE product-api (with the server side running)\
    Register clients with service discovery app\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf5 \
+\
 \'97> In product api service app:\
    Open pom of client service (in this case product-api)\
    Make sure boot versions match\
 \
   Google for:\
   {\field{\*\fldinst{HYPERLINK "https://spring.io/blog/2019/09/12/spring-cloud-greenwich-sr3-released"}}{\fldrslt 
-\f2\fs24 \cf10 \cb1 \ul \ulc10 \outl0\strokewidth0 \strokec10 https://spring.io/blog/2019/09/12/spring-cloud-greenwich-sr3-released}} \
+\f2\fs24 \cf6 \cb1 \ul https://spring.io/blog/2019/09/12/spring-cloud-greenwich-sr3-released}} \
 \
   a) Copy dependency management tag into pom of client,\
   product-api spring boot app: \
@@ -365,7 +365,7 @@ Port already in use:\
 \
   b) Add dependency:\
      
-\fs24 \cf13 \cb1 \kerning1\expnd0\expndtw0 spring-cloud-starter-netflix-eureka-client
+\fs24 \cf11 \cb1 \kerning1\expnd0\expndtw0 spring-cloud-starter-netflix-eureka-client
 \fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
 \
 \
@@ -380,7 +380,7 @@ Port already in use:\
    Where you will have multiple eureka servers running \
 \
    \'97> Add 
-\fs24 \cf14 \cb1 \kerning1\expnd0\expndtw0 @EnableDiscoveryClient
+\fs24 \cf9 \cb1 \kerning1\expnd0\expndtw0 @EnableDiscoveryClient
 \fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
 \
       to main method of client product-api\
@@ -392,15 +392,67 @@ Port already in use:\
 \
       (Note it registers the service in the console,\
        Check this out in {\field{\*\fldinst{HYPERLINK "http://localhost:8761/"}}{\fldrslt 
-\f2\fs24 \cf10 \cb1 \ul \ulc10 \outl0\strokewidth0 \strokec10 http://localhost:8761/}})\
+\f2\fs24 \cf6 \cb1 \ul \ulc6 http://localhost:8761/}})\
+\
+==========================================================\
+SPRING CLOUD MICROSERVICES REMOTE CONFIG\
+\
+Microservice Remote Config Service \
+- promotes loose coupling of services\
+(also a microservices design pattern)\
+\
+Avoid hardcoding URLs to a single point of failure eg.\
+When a server goes down containing critical instance\
+\
+Danger of defining these in 1 place, or having to maintain\
+this same info in many different places:\
+- db urls, username + pass\
+- message broker perl username + pass\
+- Internationalization I118N messages\
+\
+\
+- SO: use remote config service with profiles\
+  \'97> decouples microservices from env vars to single point\
+     of truth \
+  -> do not have to change between dev, test and prod\
+\
+NOTE: IN PRODUCTION\
+\
+Microservices layer (product, pricing, delivery etc)\
+\'97-> load balancer\
+    \'97> remote config service cluster (on multiple machines)\
+       \'97> highly available GitHub cluster\
+          \'97> GitHub Highly available storage:\
+             Micorservice-root\
+               Product\
+                 Application-dev.yml\
+                 Application-prod.yml\
+               Payment \
+                 [some other yml files etc]\
+\
+**!!!!\
+For each micro service, transfer the application.yml to\
+a remote GitHub repository\'92s \
+\
+Removed lines transferring from product-api -> mysql.yml:
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 server:\
+  port: 8081\
+\
+Create remote Config Microservice:\
++ web, actuator, config server\
+pb-ecomerce-product-api\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
+@enable-config-server\
+\
+\
+\
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf5 ==========================================================\
-\
-\
-\
-\
-\
 \
 \
 \

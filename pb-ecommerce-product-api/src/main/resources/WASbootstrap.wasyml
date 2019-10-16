@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: pb-ecommerce-product-api
