@@ -1,14 +1,16 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\froman\fcharset0 Times-Roman;
 \f3\fnil\fcharset0 Menlo-Bold;\f4\fnil\fcharset0 Menlo-BoldItalic;\f5\fnil\fcharset0 Menlo-Italic;
-}
+\f6\fnil\fcharset0 HelveticaNeue-Bold;\f7\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red0\green0\blue0;
 \red43\green39\blue19;\red0\green0\blue233;\red127\green0\blue85;\red0\green0\blue192;\red100\green100\blue100;
-\red27\green29\blue31;\red63\green95\blue191;}
+\red27\green29\blue31;\red63\green95\blue191;\red10\green77\blue204;\red249\green250\blue251;\red70\green77\blue86;
+\red0\green0\blue233;}
 {\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\csgray\c0;
 \cssrgb\c22353\c20000\c9412;\cssrgb\c0\c0\c93333;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c0\c0\c75294;\csgenericrgb\c39216\c39216\c39216;
-\cssrgb\c14118\c15294\c16078;\csgenericrgb\c24706\c37255\c74902;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww24020\viewh14120\viewkind0
+\cssrgb\c14118\c15294\c16078;\csgenericrgb\c24706\c37255\c74902;\cssrgb\c1176\c40000\c83922;\cssrgb\c98039\c98431\c98824;\cssrgb\c34510\c37647\c41176;
+\cssrgb\c0\c0\c93333;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww24020\viewh14860\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 MICROSERVICE MIGRATION FROM MONOLITHIC APPLICATIONS\
@@ -264,8 +266,7 @@ Add in event handling and build up actuator\
    Look at metrics, and call again with the parameter name appended\
 \
 ==========================================================\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf5 ==========================================================\
+==========================================================\
 Service Discovery & Service Discovery (Microservice design pattern)\
 \
 1) Push based spring cloud microservice service discovery\
@@ -314,13 +315,13 @@ Deploy: (ignore error in stack trace)\
 \'97> actuator health also states UP:\
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f2\fs24 \cf6 \cb1 \ul \ulc6         {\field{\*\fldinst{HYPERLINK "http://localhost:8080/actuator"}}{\fldrslt http://localhost:8080/actuator}}
+\f2\fs24 \cf6 \cb1 \ul         {\field{\*\fldinst{HYPERLINK "http://localhost:8080/actuator"}}{\fldrslt http://localhost:8080/actuator}}
 \f1\fs26 \cf5 \cb3 \ulnone \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf5 \
 Port already in use:\
-\'97> Find processes on 8080:  \cf10 \cb3 netstat -vanp tcp | grep 3000\
-\cf5 \cb3 -> kill it \
+\'97> Find processes on 8080:  \cf10 netstat -vanp tcp | grep 3000\
+\cf5 -> kill it \
 \
 ==========================================================\
 \
@@ -430,6 +431,7 @@ Microservices layer (product, pricing, delivery etc)\
                Payment \
                  [some other yml files etc]\
 \
+\
 **!!!!\
 For each micro service, transfer the application.yml to\
 a remote GitHub repository\'92s \
@@ -440,22 +442,43 @@ Removed lines transferring from product-api -> mysql.yml:
 \cf0 server:\
   port: 8081\
 \
-Create remote Config Microservice:\
-+ web, actuator, config server\
-pb-ecomerce-product-api\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
-@enable-config-server\
 \
 \
-\
-\
+\'97-> remove git from monolith-micro-remote-config\
+\'97-> save public key from TRT and delete, put into new account\
+\'97-> create repository in the new git: {\field{\*\fldinst{HYPERLINK "https://github.com/TRT-PaulB/monolith-micro-remote-config"}}{\fldrslt 
+\f6\b\fs36 \cf12 \cb13 \ul \ulc12 monolith-micro-remote-config}}
+\f7\fs36 \cf14 \cb13 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf5 ==========================================================\
+
+\f1\fs26 \cf5 \cb3 \'97-> init remote with the contents of monolith-micro-remote-config\
+\'97-> update the username, pass and uri\
+    In pb-ecommerce-remote-config-service / application.yml\
+\
+==========================================================\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\fs24 \cf6 \cb1 \ul \ulc6 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://github.com/PaulJames4748/pb-monolith-micro-remote-config"}}{\fldrslt \cf15 \ulc15 \outl0\strokewidth0 \strokec15 https://github.com/PaulJames4748/pb-monolith-micro-remote-config}}\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf6 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf4 \kerning1\expnd0\expndtw0 \ulnone \CocoaLigature0 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDYWUpc+ZvTfUXjgdi2qy5tm/c9bKq0rH+hayiD9zSd1JshtQ1zJEgw/ceuiQHOVz6AKOkhUAXOQxrZp0aUEoqugIDV281RrRpKehi2+8LKFyzTrHhHSs+RBbRHwHkXBTNdXl9Cz872XBqI9W8RKiT7ZbDZcLGtw1hSN1gbVenlxIJQbsHb7HY2EgYKz4OyXHwYcrlGOfmxhR1JYiS1LBn06hZ/8p6tpWHP/1Pg89nyQQA9vUTf84qHnESfOBgYbX7M5pRdQcEVNVg7qlzdjvnKzUTFCxYHS2FFOKoAZ4ypKDmJf8MZS93L4VN8dP34hY96jZxpXL9nHCOG3IP3Xz2u/Byz4cYHiBelD8bP14LyGrVb6aWIjN4eBGsSvJTOasWwvi0Qcw9kFm52ikBGfjLec00yZazxPlAUssOGv8hwUwI3Xtqp2U4j/B42MCUBh2Oque7SlzcdoiLVbJ2KNEhffjoAufVN+JyNU2+MJif32+BVF5qy8Zn44Ubofjp24tkoLrC6xlBnxAOW4bLzfjniOAJwl3sLReOJ4QM/13wPfopG35cyD0psTeMvdCbNcdkR4CXrLpcgRV7uVPrQ+yAKkWsLqSUI9XBUYL+UFMa5rj7p/4TDddkCWr+e0Kg0PJYbVVWI+9uPu+1zy05EKbJUsOjFK4tVPMqoCWOIJ/NEOw== paul.bickell@raytheon.co.uk
+\f2\fs24 \cf6 \expnd0\expndtw0\kerning0
+\ul \ulc6 \CocoaLigature1 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf6 \
 \
 \
 \
 \
 \
-}
+\
+{\field{\*\fldinst{HYPERLINK "https://github.com/rollingstoneecomm/rollingstone-ecommerce-remote-config-repository"}}{\fldrslt \uc0\u8776 }}}

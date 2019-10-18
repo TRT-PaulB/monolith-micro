@@ -1,7 +1,0 @@
-package com.myboot.DraftECommerceApp.info;
-
-
-@RestController
-public class MyControllerFromScratch {
-
-}

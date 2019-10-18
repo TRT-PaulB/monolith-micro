@@ -6,8 +6,12 @@ spring:
       server:
         git:  
           uri: https://github.com/rollingstoneecomm/rollingstone-ecommerce-remote-config-repository 
-          searchPaths: [project name],[project name] 
+          searchPaths: pb-ecommerce-product-api 
           username: rollingstonecomm
           password:  KeepLearning$$1
+          
+          
+          
+          
   
   
